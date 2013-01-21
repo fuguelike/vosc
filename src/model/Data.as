@@ -4,6 +4,7 @@ package model
 	
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
+	import audio.AudioData;
 
 	public class Data extends EventDispatcher
 	{
@@ -77,7 +78,7 @@ package model
 			
 		}
 		
-		public function init(oscillatorData:Vector.<OscData>):void
+		public function init(oscillatorData:Vector.<OscData>, audioData:AudioData):void
 		{
 			oscDatas = oscillatorData;
 			
@@ -85,6 +86,7 @@ package model
 			{
 				oscDatas[i].addEventListener(OscData.UPDATE_SHADER, onUpdateShader);
 			}
+			
 			
 			vo.osc0 = oscDatas[0].vo;
 			vo.osc1 = oscDatas[1].vo;

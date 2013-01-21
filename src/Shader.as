@@ -59,8 +59,11 @@ package
 				"add vt6.x, vt0.x, vt4.x \n"+ 
 				"add vt6.y, vt0.y, vt4.y \n"+
 				
-				"add op.x, vt6.x, va0.x \n"+  // add to the starting vertex positions
-				"add op.y, vt6.y, va0.y \n"+
+				"add op.x, vt6.x, va0.x \n"+  // add to the starting vertex positions (center)
+				
+				
+				"add vt0.y, vt6.y, va0.y \n"+
+				"mul op.y, vt0.y, vc2.x \n"+
 				
 				
 				// vt7 reserved for trig calculations

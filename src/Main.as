@@ -1,5 +1,7 @@
 package
 {
+	import audio.AudioData;
+	
 	import com.adobe.utils.*;
 	
 	import flash.display.Bitmap;
@@ -57,6 +59,7 @@ package
 		
 		protected var vui:VoscUI;
 		protected var _paused:Boolean = true;
+		private var audioData:AudioData;
 		
 		public function Main()
 		{ 
@@ -102,7 +105,9 @@ package
 				vui.addItem(panel,"OSC "+i.toString());
 			}
 			
-			data.init(oscDatas);
+			audioData = new AudioData();
+			
+			data.init(oscDatas, audioData);
 			
 			vui.addItem(new ColorPickerPanel(data.fgColors, data.bgColors),"COLOR");
 			
@@ -195,6 +200,7 @@ package
 			
 //			trace("RENDER");
 			
+//			audioData.updateSample();
 			data.updateTime();
 			coreRenderer.render();
 //			filterManager.render();
